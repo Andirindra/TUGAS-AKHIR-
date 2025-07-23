@@ -886,3 +886,38 @@ hr {
   font-size: 14px;
   color: #444;
 }
+
+/* ==== Halaman Galeri ==== */
+
+.galeri-section {
+  padding: 40px;
+  text-align: center;
+}
+
+.galeri-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.galeri-item {
+  width: 300px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background: #f9f9f9;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+.galeri-item img,
+.galeri-item video {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.galeri-item p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #444;
+}
