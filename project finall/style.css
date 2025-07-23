@@ -921,3 +921,52 @@ hr {
   font-size: 14px;
   color: #444;
 }
+
+/* ==== Halaman Pendaftaran ==== */
+
+.pendaftaran-section {
+  padding: 40px;
+  text-align: center;
+}
+
+.info-pendaftaran {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  text-align: left;
+}
+
+.info-pendaftaran ul {
+  margin-top: 10px;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.formulir-pendaftaran {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.formulir-pendaftaran form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formulir-pendaftaran input,
+.formulir-pendaftaran select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.formulir-pendaftaran button {
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
