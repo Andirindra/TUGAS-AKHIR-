@@ -1,0 +1,820 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    color: #333; /* Mengembalikan warna teks umum ke #333 agar lebih kontras */
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px; /* Menambahkan max-width untuk kontrol lebih baik di layar lebar */
+    margin: auto;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+.bg-light {
+    background-color: #e2e2e2;
+}
+
+h1, h2, h3 {
+    color: #020a69; /* Warna biru gelap yang konsisten */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    display: inline-block;
+    background: #020a69;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background: #0056b3; /* Sedikit lebih gelap saat hover */
+    text-decoration: none;
+}
+
+/* Header */
+header {
+    background: #020a69;
+    color: #fff;
+    padding: 20px 0;
+    /* border-bottom: #020a69; 3px solid; */ /* Perbaiki ini: #020a69; 3px solid seharusnya #020a69 3px solid; */
+    border-bottom: #020a69 3px solid; /* Perbaikan syntax */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Untuk responsivitas di header */
+}
+
+header h1 {
+    /* float: center; */ /* Hapus ini karena tidak valid */
+    margin: 0;
+    color: #fff;
+    font-size: 1.8em;
+    flex-grow: 1; /* Agar h1 mengambil ruang yang tersedia */
+    text-align: center; /* Memusatkan teks h1 */
+}
+
+header nav {
+    /* float: right; */ /* Hapus ini */
+    margin-top: 5px;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header li {
+    display: inline-block;
+    padding: 0 15px;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1em;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+header a:hover {
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('foto.jpg'); /* Pastikan path gambar benar: '../images/foto.jpg' */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 100px 0;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.hero h2 {
+    color: #fff;
+    font-size: 3em;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero p {
+    color: #fff;
+    font-size: 1.2em;
+    position: relative;
+    z-index: 2;
+}
+
+/* Program List */
+.program-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.program-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    flex: 0 1 calc(33% - 40px);
+    min-width: 280px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* News & Events */
+.news-item {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.news-item .date {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+    justify-items: center;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #0056b3;
+}
+
+/* Footer Section - Revisi Utama di Sini */
+footer {
+    background: #e2e2e2; /* Ubah warna latar belakang footer menjadi abu-abu terang */
+    color: #333; /* Ubah warna teks footer menjadi gelap agar terbaca */
+    padding: 40px 0 0; /* Padding atas dan bawah, nol untuk bottom karena ada footer-bottom */
+    margin-top: 30px;
+    line-height: 1.8; /* Meningkatkan jarak antar baris */
+}
+
+.footer-content {
+    display: flex; /* Menggunakan Flexbox untuk kolom */
+    flex-wrap: wrap; /* Agar kolom pecah ke baris baru di layar kecil */
+    justify-content: space-between; /* Mendistribusikan kolom secara merata */
+    align-items: flex-start; /* Menyelaraskan kolom dari atas */
+    padding-bottom: 30px; /* Padding bawah untuk konten utama footer */
+    border-bottom: 1px solid #ccc; /* Garis pemisah antara konten dan hak cipta */
+}
+
+.footer-column {
+    flex: 1; /* Agar kolom mengambil ruang yang tersedia secara merata */
+    min-width: 280px; /* Lebar minimum sebelum pecah baris */
+    margin: 0 15px 30px 15px; /* Margin samping dan bawah untuk jarak antar kolom */
+    text-align: left; /* Teks di dalam kolom sejajar kiri */
+}
+
+.footer-column h3 {
+    color: #333; /* Warna judul kolom footer */
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    text-align: left; /* Judul kolom sejajar kiri */
+    border-bottom: 2px solid #020a69; /* Garis bawah untuk judul kolom */
+    padding-bottom: 5px;
+    display: inline-block; /* Agar garis bawah hanya sepanjang teks */
+}
+
+.footer-column p {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    background: #a0a0a0; /* Warna latar belakang ikon */
+    color: #fff; /* Warna ikon */
+    width: 35px;
+    height: 35px;
+    line-height: 35px; /* Pusatkan ikon vertikal */
+    border-radius: 5px; /* Sudut sedikit membulat */
+    margin-right: 8px;
+    text-align: center;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+    background: #020a69; /* Warna ikon saat hover */
+    text-decoration: none;
+}
+
+.footer-bottom {
+    background-color: #d0d0d0; /* Warna latar belakang untuk bagian hak cipta */
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.85em;
+    color: #555;
+}
+
+/* Responsive Design (Basic) */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header h1 {
+        flex-grow: 0; /* Di layar kecil, h1 tidak perlu tumbuh penuh */
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    header nav {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    header li {
+        display: block;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header li:last-child {
+        border-bottom: none;
+    }
+
+    .hero h2 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .program-item {
+        flex: 0 1 100%;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    /* Footer responsif */
+    .footer-content {
+        flex-direction: column; /* Kolom footer menjadi tumpuk vertikal */
+        align-items: center; /* Pusatkan kolom */
+    }
+
+    .footer-column {
+        min-width: unset; /* Hapus min-width agar menyesuaikan lebar penuh */
+        width: 90%; /* Ambil sebagian besar lebar container */
+        margin: 0 0 30px 0; /* Margin atas dan bawah */
+        text-align: center; /* Pusatkan teks kolom */
+    }
+
+    .footer-column h3 {
+        text-align: center; /* Pusatkan judul kolom */
+        margin: 0 auto 15px auto; /* Pusatkan judul dengan margin auto */
+    }
+}
+
+/* Import gaya umum dari style.css */
+/* @import url('style.css'); */ /* Ini dihapus karena ini adalah file style.css itu sendiri */
+
+/* ------------------------------------------------------------------- */
+/* Gaya Khusus untuk Halaman Tentang (about.html) */
+/* ------------------------------------------------------------------- */
+
+/* Contoh: Menyesuaikan tampilan judul di halaman Tentang */
+#about h2 {
+    color: #0056b3; /* Warna biru yang sedikit berbeda dari default h2 */
+    font-size: 2.8em;
+    border-bottom: 3px solid #0056b3; /* Garis bawah yang menonjol */
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    display: inline-block; /* Agar border-bottom hanya selebar teks */
+    text-align: center; /* Memastikan judul tetap di tengah jika inline-block */
+    width: 100%; /* Agar bisa di-text-align: center */
+}
+
+/* Gaya untuk sub-judul (h3) di halaman Tentang */
+#about h3 {
+    color: #020a69; /* Warna biru gelap kampus */
+    font-size: 1.8em;
+    text-align: left; /* Rata kiri untuk sub-judul */
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* Gaya untuk paragraf di halaman Tentang */
+#about p {
+    font-size: 1em;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    text-align: justify; /* Teks rata kanan-kiri */
+    color: #555; /* Warna teks yang sedikit lebih lembut */
+}
+
+/* Gaya untuk daftar (ul/li) di halaman Tentang (Visi & Misi) */
+#about ul {
+    list-style: disc inside; /* Bullet point di dalam teks */
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+#about ul li {
+    margin-bottom: 8px;
+    font-size: 1em;
+    color: #555;
+}
+
+/* Gaya untuk sub-sub-judul (h4) di halaman Tentang (Visi atau Misi) */
+#about h4 {
+    color: #020a69;
+    font-size: 1.3em;
+    text-align: left;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+/* Mengubah warna latar belakang section About saja jika diinginkan */
+#about.section-padding {
+    background-color: #fcfcfc; /* Warna putih bersih untuk section ini */
+}
+
+/* Contoh: Responsif khusus untuk halaman About */
+@media (max-width: 768px) {
+    #about h2 {
+        font-size: 2em;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+    }
+
+    #about h3 {
+        font-size: 1.5em;
+        text-align: center; /* Sub-judul di tengah untuk mobile */
+    }
+
+    #about p, #about ul li {
+        text-align: left; /* Tetap rata kiri atau justify untuk paragraf */
+    }
+
+    #about ul {
+        padding-left: 0; /* Hapus padding untuk mobile */
+        list-style: none; /* Hapus bullet untuk tampilan mobile */
+    }
+
+    #about ul li::before {
+        content: "• "; /* Tambahkan bullet custom jika list-style dihapus */
+        color: #020a69;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+    }
+}
+
+/* ------------------------------------------------------------------- */
+/* Gaya Khusus untuk Halaman Program Studi (programstudi.html) */
+/* ------------------------------------------------------------------- */
+
+#programstudi.section-padding {
+    background-color: #fcfcfc; /* Latar belakang putih bersih untuk section Program Studi */
+    padding-top: 40px; /* Sedikit padding atas agar tidak terlalu mepet header */
+}
+
+#programstudi h2 {
+    color: #020a69; /* Warna judul utama sesuai identitas kampus */
+    font-size: 2.8em;
+    border-bottom: 3px solid #020a69; /* Garis bawah yang tegas */
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    display: inline-block; /* Agar border-bottom hanya selebar teks */
+    text-align: center;
+    width: 100%; /* Memungkinkan text-align center bekerja */
+}
+
+#programstudi .program-description {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    color: #555;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faculty-section {
+    margin-bottom: 60px; /* Jarak antar bagian fakultas */
+}
+
+.faculty-section h3 {
+    color: #020a69; /* Warna judul fakultas */
+    font-size: 2.2em;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid #007bff; /* Garis bawah untuk judul fakultas */
+    padding-bottom: 10px;
+    display: inline-block;
+    width: auto; /* Agar border-bottom sesuai lebar teks */
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative; /* Untuk memusatkan inline-block */
+}
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsif, min 300px, mengisi sisa ruang */
+    gap: 30px; /* Jarak antar kartu program */
+    margin-top: 30px;
+}
+
+.program-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Sudut membulat */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Bayangan lebih halus */
+    padding: 25px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi untuk hover */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Menjaga tombol "Detail" di bagian bawah */
+}
+
+.program-card:hover {
+    transform: translateY(-8px); /* Efek angkat saat hover */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.program-card h4 { /* Gaya untuk judul jenjang studi (S1, D3, S2) */
+    color: #0056b3; /* Warna biru yang sedikit berbeda */
+    font-size: 1.6em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center; /* Judul kartu di tengah */
+}
+
+.program-card ul {
+    list-style: none; /* Menghilangkan bullet default */
+    padding: 0;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Agar daftar mengisi ruang sebelum tombol */
+}
+
+.program-card ul li {
+    background-color: #e9f5ff; /* Latar belakang biru muda untuk item daftar */
+    border-left: 4px solid #007bff; /* Garis biru di kiri */
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    font-size: 0.95em;
+    color: #333;
+    line-height: 1.4;
+}
+
+.program-card ul li strong {
+    color: #020a69; /* Warna untuk nama program studi yang tebal */
+    display: block; /* Agar nama program studi berada di baris sendiri */
+    margin-bottom: 5px;
+    font-size: 1.05em;
+}
+
+.program-card ul li:last-child {
+    margin-bottom: 0;
+}
+
+.program-card .btn {
+    align-self: center; /* Memusatkan tombol dalam flex container */
+    margin-top: auto; /* Mendorong tombol ke bawah */
+    padding: 10px 25px;
+    font-size: 0.95em;
+    min-width: 180px; /* Memberikan lebar minimum pada tombol */
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(2, 10, 105, 0.75), rgba(0, 0, 0, 0)); /* Garis gradien biru gelap */
+    margin: 60px 0; /* Jarak di atas dan bawah garis */
+}
+
+
+/* Responsif untuk halaman Program Studi */
+@media (max-width: 768px) {
+    #programstudi h2 {
+        font-size: 2em;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+    }
+
+    .faculty-section h3 {
+        font-size: 1.8em;
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+    }
+
+    .program-grid {
+        grid-template-columns: 1fr; /* Satu kolom di layar kecil */
+    }
+
+    .program-card {
+        margin: 0 auto; /* Pusatkan kartu jika hanya ada satu kolom */
+        width: 95%; /* Sesuaikan lebar kartu di mobile */
+    }
+
+    .program-card h4 {
+        font-size: 1.4em;
+    }
+
+    .program-card ul li {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+
+    .program-card ul li strong {
+        font-size: 1em;
+    }
+
+    hr {
+        margin: 40px 0;
+    }
+}
+
+/* ------------------------------------------------------------------- */
+/* Gaya Khusus untuk Halaman Kontak (kontak.html) */
+/* ------------------------------------------------------------------- */
+
+#kontak.section-padding {
+    background-color: #fcfcfc;
+    padding-top: 40px;
+}
+
+#kontak h2 {
+    color: #020a69;
+    font-size: 2.8em;
+    border-bottom: 3px solid #020a69;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.contact-intro {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 1.1em;
+    color: #555;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.contact-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.contact-card i {
+    font-size: 2.5em;
+    color: #020a69; /* Warna ikon sesuai brand */
+    margin-bottom: 15px;
+}
+
+.contact-card h3 {
+    font-size: 1.4em;
+    color: #020a69;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center; /* Pastikan judul kartu di tengah */
+}
+
+.contact-card p {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.contact-card a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+}
+
+.contact-form-section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    padding: 40px;
+    margin-bottom: 60px;
+}
+
+.contact-form-section h3, .map-section h3 {
+    color: #020a69;
+    font-size: 2em;
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    display: inline-block;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: calc(100% - 22px); /* Kurangi 22px untuk padding dan border */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar */
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border: none; /* Hapus border bawaan */
+}
+
+.map-section iframe {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    width: 100%; /* Pastikan iframe mengisi lebar container */
+}
+
+/* Responsive Design for Contact Page */
+@media (max-width: 768px) {
+    #kontak h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    .contact-info-grid {
+        grid-template-columns: 1fr; /* Satu kolom di layar kecil */
+    }
+
+    .contact-card {
+        margin: 0 auto;
+        width: 90%;
+        margin-bottom: 20px; /* Jarak antar kartu di mobile */
+    }
+
+    .contact-form-section {
+        padding: 30px 20px;
+        margin-bottom: 40px;
+    }
+
+    .contact-form-section h3, .map-section h3 {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+}
