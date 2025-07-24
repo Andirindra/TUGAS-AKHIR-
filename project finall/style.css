@@ -819,154 +819,641 @@ hr {
     }
 }
 
-/* ==== Halaman Berita dan Acara ==== */
+
+/* ==== General Body & Container Styles ==== */
+/* Ini adalah bagian umum. Jika Anda sudah punya body dan container, pastikan tidak bertabrakan. */
+body {
+    font-family: 'Open Sans', sans-serif; /* Pastikan font ini diimpor di HTML <head> */
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4; /* Light gray background for body */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px; /* Lebar maksimum konten */
+    margin: 0 auto;
+    padding: 20px 0; /* Padding vertikal di dalam container */
+}
+
+/* CATATAN PENTING:
+   BAGIAN HEADER DAN FOOTER TIDAK DIEDIT DI SINI.
+   ASUMSIKAN CSS UNTUK HEADER DAN FOOTER SUDAH ADA DI style.css ANDA
+   DAN SUDAH SESUAI DENGAN TAMPILAN beranda.html YANG ANDA INGINKAN.
+   Saya hanya akan menambahkan/memperbarui CSS untuk halaman berita dan hero-subpage.
+*/
+
+
+/* ==== HERO Section for Subpages (Banner di atas berita) ==== */
+/* Ini adalah bagian baru untuk banner di halaman berita, agar konsisten dengan tema biru */
+.hero-subpage {
+    background: linear-gradient(rgba(0, 123, 255, 0.8), rgba(0, 123, 255, 0.6)), url('https://via.placeholder.com/1600x400/0056b3/ffffff?text=Berita+Kampus'); /* Ganti dengan gambar latar belakang kampus Anda */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 40px;
+}
+
+.hero-subpage h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-subpage p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+/* ==== Perbaikan Halaman Berita dan Acara ==== */
 
 .news-section {
-  padding: 40px;
-  text-align: center;
+    padding: 40px 0; /* Padding atas dan bawah, lebar diatur oleh .container */
+    background-color: #fff; /* Latar belakang putih untuk section berita */
+    box-shadow: 0 0 15px rgba(0,0,0,0.1); /* Bayangan lembut */
+    border-radius: 8px; /* Sudut membulat */
+    margin-bottom: 40px; /* Jarak bawah dari konten setelahnya, atau footer */
 }
 
-.news-section h2 {
-  font-size: 28px;
-  margin-bottom: 30px;
+.news-section h2.section-title { /* Menggunakan class .section-title untuk styling judul */
+    font-size: 2.5em; /* Ukuran font lebih besar */
+    color: #007bff; /* Warna biru konsisten */
+    margin-bottom: 40px; /* Jarak bawah judul */
+    position: relative;
+    padding-bottom: 10px;
+    text-align: center;
 }
 
-.news-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+.news-section h2.section-title::after { /* Garis bawah dekoratif */
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #007bff;
+    border-radius: 2px;
 }
 
+/* Modifikasi news-container menjadi news-grid untuk tata letak yang lebih baik */
+.news-grid { /* Pastikan di HTML Anda sudah menggunakan <div class="news-grid"> */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsif */
+    gap: 30px; /* Jarak antar kartu */
+    padding: 0 20px; /* Padding samping agar konten tidak terlalu rapat ke tepi */
+}
+
+/* Modifikasi news-card */
 .news-card {
-  display: flex;
-  border: 1px solid #ddd;
-  max-width: 600px;
-  background: #fafafa;
-  overflow: hidden;
-  text-align: left;
+    display: flex;
+    flex-direction: column; /* Gambar di atas, konten di bawah */
+    border: 1px solid #eee; /* Border lebih terang */
+    background: #fff;
+    border-radius: 8px; /* Sudut membulat */
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Bayangan lebih menonjol */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efek hover */
+}
+
+.news-card:hover {
+    transform: translateY(-5px); /* Sedikit naik saat di-hover */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Bayangan lebih besar saat di-hover */
 }
 
 .news-card img {
-  width: 200px;
-  height: auto;
-  object-fit: cover;
+    width: 100%;
+    height: 200px; /* Tinggi gambar konsisten */
+    object-fit: cover; /* Pastikan gambar mengisi area dengan baik */
+    display: block;
 }
 
-.news-content {
-  padding: 15px;
-  position: relative;
-  flex-grow: 1;
+.news-card .card-content { /* Pastikan di HTML Anda sudah menggunakan <div class="card-content"> */
+    padding: 20px;
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Mendorong "read more" ke bawah */
 }
 
-.news-date {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  background: #eee;
-  padding: 5px 10px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 1.2;
+/* Modifikasi news-date */
+.news-card .news-date { /* Pastikan di HTML Anda sudah menggunakan <div class="news-date"> dan di dalamnya <span> */
+    position: absolute;
+    top: -30px; /* Mengambang di atas gambar */
+    right: 20px;
+    background: #007bff; /* Warna biru konsisten */
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.1em;
+    line-height: 1.2;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Bayangan tanggal */
 }
 
-.news-date span {
-  display: block;
-  font-size: 12px;
-  color: #555;
+.news-card .news-date .day { /* Pastikan di HTML Anda sudah menggunakan <span class="day"> */
+    display: block;
+    font-size: 1.5em; /* Ukuran hari lebih besar */
+    line-height: 1;
 }
 
-.news-content h3 {
-  font-size: 18px;
-  margin: 0 0 10px;
+.news-card .news-date .month-year { /* Pastikan di HTML Anda sudah menggunakan <span class="month-year"> */
+    display: block;
+    font-size: 0.8em; /* Ukuran bulan/tahun lebih kecil */
+    color: #fff;
 }
 
-.news-content p {
-  font-size: 14px;
-  color: #444;
+.news-card .card-content h3 {
+    font-size: 1.4em;
+    margin-top: 10px; /* Sesuaikan margin karena tanggal mengambang */
+    margin-bottom: 10px;
+    color: #333;
+    line-height: 1.3;
 }
+
+.news-card .card-content p {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.news-card .read-more { /* Styling untuk link "READ MORE" */
+    display: inline-block;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    margin-top: auto; /* Untuk mendorong link ke bawah */
+}
+
+.news-card .read-more:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* ==== Responsive Adjustments (Penting untuk tampilan mobile) ==== */
+@media (max-width: 768px) {
+    /* Bagian ini hanya untuk hero-subpage dan news-grid/card */
+    /* Header Anda akan menggunakan media query-nya sendiri dari CSS asli Anda */
+    .hero-subpage h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-subpage p {
+        font-size: 1em;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr; /* Satu kolom di layar kecil */
+    }
+
+    .news-section h2.section-title {
+        font-size: 2em;
+    }
+
+    /* Penyesuaian posisi tanggal agar tidak terpotong di mobile */
+    .news-card .news-date {
+        position: static; /* Kembali ke posisi normal (tidak mengambang) */
+        margin: 10px auto 0; /* Posisikan di tengah */
+        width: fit-content; /* Lebar sesuai konten */
+        box-shadow: none; /* Hilangkan bayangan jika tidak mengambang */
+    }
+}
+
+@media (max-width: 480px) {
+    .news-section h2.section-title {
+        font-size: 1.8em;
+    }
+    .hero-subpage h1 {
+        font-size: 2em;
+    }
+}
+
+/* ==== General Body & Container Styles ==== */
+/* Ini adalah bagian umum. Jika Anda sudah punya body dan container, pastikan tidak bertabrakan. */
+body {
+    font-family: 'Open Sans', sans-serif; /* Pastikan font ini diimpor di HTML <head> */
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4; /* Light gray background for body */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px; /* Lebar maksimum konten */
+    margin: 0 auto;
+    padding: 20px 0; /* Padding vertikal di dalam container */
+}
+
+/* CATATAN PENTING:
+   BAGIAN HEADER DAN FOOTER TIDAK DIEDIT DI SINI.
+   ASUMSIKAN CSS UNTUK HEADER DAN FOOTER SUDAH ADA DI style.css ANDA
+   DAN SUDAH SESUAI DENGAN TAMPILAN beranda.html YANG ANDA INGINKAN.
+   Saya hanya akan menambahkan/memperbarui CSS untuk halaman galeri, berita, dan pendaftaran,
+   termasuk hero-subpage, section-title, dan card-block.
+*/
+
+
+/* ==== HERO Section for Subpages (Banner di atas sub-halaman) ==== */
+/* Ini adalah bagian yang sama dengan hero-subpage di berita dan pendaftaran, agar konsisten */
+.hero-subpage {
+    background: linear-gradient(rgba(0, 123, 255, 0.8), rgba(0, 123, 255, 0.6)), url('https://via.placeholder.com/1600x400/0056b3/ffffff?text=Galeri+Kampus'); /* Ganti dengan gambar latar belakang yang sesuai */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 40px;
+}
+
+.hero-subpage h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-subpage p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ==== Section Title Styling (Untuk Judul di halaman Berita, Pendaftaran, dan Galeri) ==== */
+.section-title { /* Ini adalah style untuk h2.section-title */
+    text-align: center;
+    font-size: 2.5em;
+    color: #007bff; /* Warna biru konsisten */
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #007bff;
+    border-radius: 2px;
+}
+
+/* ==== General Card Block Style (Digunakan untuk kartu berita, blok informasi/formulir pendaftaran, dan item galeri) ==== */
+.card-block {
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 30px; /* Padding default untuk konten di dalam blok */
+    margin-bottom: 30px; /* Jarak antar blok kartu */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efek hover konsisten */
+}
+
+.card-block:hover {
+    transform: translateY(-5px); /* Sedikit naik saat di-hover */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Bayangan lebih besar saat di-hover */
+}
+
 
 /* ==== Halaman Galeri ==== */
 
 .galeri-section {
-  padding: 40px;
-  text-align: center;
+    padding: 40px 0; /* Padding diatur oleh .container */
+    text-align: center;
 }
 
 .galeri-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+    display: grid; /* Menggunakan Grid untuk tata letak lebih rapi dan responsif */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsif */
+    gap: 30px; /* Jarak antar item galeri */
+    padding: 0 20px; /* Padding samping agar konten tidak terlalu rapat ke tepi */
 }
 
 .galeri-item {
-  width: 300px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  background: #f9f9f9;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    /* Properti card-block sudah diterapkan, jadi tidak perlu border, background, shadow lagi */
+    display: flex;
+    flex-direction: column; /* Gambar di atas, caption di bawah */
+    overflow: hidden; /* Pastikan gambar tidak keluar dari batas */
+    text-align: left; /* Teks caption rata kiri */
+    padding: 0; /* Hapus padding default galeri-item karena sudah ada di card-block */
+    border: none; /* Hapus border default karena sudah ada di card-block (atau tidak perlu) */
+    box-shadow: none; /* Hapus shadow default karena sudah ada di card-block */
+    background: none; /* Hapus background default karena sudah ada di card-block */
 }
 
-.galeri-item img,
-.galeri-item video {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
+.galeri-item img {
+    width: 100%;
+    height: 220px; /* Tinggi gambar konsisten */
+    object-fit: cover; /* Pastikan gambar mengisi area dengan baik tanpa distorsi */
+    display: block;
+    border-radius: 8px 8px 0 0; /* Sudut membulat hanya di atas */
+    /* Pastikan gambar tidak memiliki border-radius: 5px; lagi jika ingin ikut card-block */
 }
 
-.galeri-item p {
-  margin-top: 8px;
-  font-size: 14px;
-  color: #444;
+.galeri-item .galeri-caption { /* Stylingan untuk caption/keterangan gambar */
+    padding: 20px; /* Padding untuk teks di dalam caption */
+    flex-grow: 1;
+    display: flex;
+    align-items: center; /* Rata tengah vertikal jika caption pendek */
+    justify-content: center; /* Rata tengah horizontal */
+    text-align: center; /* Teks caption di tengah */
+    background-color: #fff; /* Pastikan background putih di area caption */
+    border-radius: 0 0 8px 8px; /* Sudut membulat hanya di bawah */
 }
+
+.galeri-item .galeri-caption p {
+    margin: 0; /* Hapus margin default paragraf di dalam caption */
+    font-size: 1.1em;
+    color: #555;
+    font-weight: 600; /* Tebalkan sedikit */
+    line-height: 1.4;
+}
+
+
+/* ==== Responsive Adjustments ==== */
+@media (max-width: 768px) {
+    .hero-subpage h1 {
+        font-size: 2.5em;
+    }
+    .hero-subpage p {
+        font-size: 1em;
+    }
+    .section-title {
+        font-size: 2em;
+    }
+    .galeri-grid {
+        grid-template-columns: 1fr; /* Satu kolom di layar kecil */
+        padding: 0 10px;
+    }
+    .galeri-item {
+        margin-bottom: 20px; /* Jarak antar item galeri di mobile */
+        padding: 0; /* Hapus padding karena card-block sudah handle */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.8em;
+    }
+    .hero-subpage h1 {
+        font-size: 2em;
+    }
+    .galeri-item img {
+        height: 180px; /* Kurangi tinggi gambar di layar sangat kecil */
+    }
+    .galeri-item .galeri-caption {
+        padding: 15px;
+    }
+}
+
+/* ==== General Body & Container Styles ==== */
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Pastikan font ini diimpor di HTML <head> */
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4; /* Light gray background for body */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px; /* Lebar maksimum konten */
+    margin: 0 auto;
+    padding: 20px 0; /* Padding vertikal di dalam container */
+}
+
+
+/* ==== HERO Section for Subpages (Banner di atas berita dan pendaftaran) ==== */
+
+.hero-subpage {
+    background: linear-gradient(rgba(0, 123, 255, 0.8), rgba(0, 123, 255, 0.6)), url('https://via.placeholder.com/1600x400/0056b3/ffffff?text=Daftar+Sekarang'); /* Ganti dengan gambar latar belakang yang sesuai */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 40px;
+}
+
+.hero-subpage h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-subpage p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ==== Section Title Styling (Untuk Judul di halaman Berita dan Pendaftaran) ==== */
+.section-title { /* Ini adalah style untuk h2.section-title */
+    text-align: center;
+    font-size: 2.5em;
+    color: #007bff; /* Warna biru konsisten */
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #007bff;
+    border-radius: 2px;
+}
+
+/* ==== General Card Block Style (Digunakan untuk kartu berita dan blok informasi/formulir pendaftaran) ==== */
+.card-block {
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 30px; /* Padding lebih besar untuk konten di dalam blok */
+    margin-bottom: 30px; /* Jarak antar blok kartu */
+}
+
 
 /* ==== Halaman Pendaftaran ==== */
 
 .pendaftaran-section {
-  padding: 40px;
-  text-align: center;
+    /* Padding diatur oleh .container */
+    /* Latar belakang putih dan bayangan diatur oleh .card-block jika pendaftaran-section sendiri adalah card-block */
+    /* Namun, jika ingin seluruh section punya padding luar, pakai ini */
+    padding: 40px 0;
+    text-align: center; /* Untuk judul utama section */
 }
 
+/* Informasi Pendaftaran */
 .info-pendaftaran {
-  max-width: 600px;
-  margin: 0 auto 30px;
-  text-align: left;
+    max-width: 800px; /* Lebar lebih luas untuk informasi */
+    margin: 0 auto 30px;
+    text-align: left; /* Teks di dalam info-pendaftaran rata kiri */
+}
+
+.info-pendaftaran h3 {
+    font-size: 1.8em;
+    color: #007bff;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee; /* Garis bawah tipis */
+    padding-bottom: 10px;
 }
 
 .info-pendaftaran ul {
-  margin-top: 10px;
-  padding-left: 20px;
-  text-align: left;
+    list-style: none; /* Hapus bullet default */
+    margin-top: 10px;
+    padding-left: 0; /* Hapus padding default */
 }
 
+.info-pendaftaran ul li {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 25px; /* Ruang untuk ikon bullet kustom */
+}
+
+.info-pendaftaran ul li::before { /* Bullet kustom dengan warna biru */
+    content: '\2022'; /* Unicode untuk bullet */
+    color: #007bff;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.info-pendaftaran p {
+    font-size: 1em;
+    color: #444;
+    margin-top: 20px;
+}
+
+.info-pendaftaran a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.info-pendaftaran a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Formulir Pendaftaran */
 .formulir-pendaftaran {
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: left;
+    max-width: 600px; /* Lebar formulir */
+    margin: 0 auto;
+    text-align: left;
 }
 
 .formulir-pendaftaran form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Jarak antar elemen form */
+}
+
+.formulir-pendaftaran label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px; /* Jarak antara label dan input */
+    display: block; /* Agar label berada di baris sendiri */
 }
 
 .formulir-pendaftaran input,
-.formulir-pendaftaran select {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+.formulir-pendaftaran select,
+.formulir-pendaftaran textarea { /* Tambahkan textarea */
+    padding: 12px; /* Padding lebih besar */
+    border-radius: 5px;
+    border: 1px solid #ddd; /* Border lebih lembut */
+    font-size: 1em;
+    width: calc(100% - 24px); /* Sesuaikan lebar dengan padding */
+    box-sizing: border-box; /* Padding dihitung dalam lebar */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulir-pendaftaran input:focus,
+.formulir-pendaftaran select:focus,
+.formulir-pendaftaran textarea:focus {
+    border-color: #007bff; /* Border biru saat fokus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Bayangan biru saat fokus */
 }
 
 .formulir-pendaftaran button {
-  padding: 12px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
+    padding: 15px; /* Padding lebih besar untuk tombol */
+    background-color: #007bff; /* Tombol biru */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+.formulir-pendaftaran button:hover {
+    background-color: #0056b3; /* Biru lebih gelap saat hover */
+    transform: translateY(-2px); /* Efek sedikit naik */
+}
+
+
+/* ==== Responsive Adjustments (Penting untuk tampilan mobile) ==== */
+/* Bagian ini akan diterapkan bersama dengan media queries lain di style.css Anda */
+@media (max-width: 768px) {
+    .hero-subpage h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-subpage p {
+        font-size: 1em;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .info-pendaftaran,
+    .formulir-pendaftaran {
+        padding: 20px; /* Kurangi padding pada mobile */
+        width: auto; /* Biarkan lebar mengikuti container */
+    }
+
+    .formulir-pendaftaran input,
+    .formulir-pendaftaran select,
+    .formulir-pendaftaran textarea {
+        width: calc(100% - 20px); /* Sesuaikan lebar input di mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.8em;
+    }
+    .hero-subpage h1 {
+        font-size: 2em;
+    }
+}
