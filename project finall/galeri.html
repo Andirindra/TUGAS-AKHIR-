@@ -1,38 +1,91 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Galeri Kampus</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Kampus - Universitas Handayani Makassar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <section class="galeri-section">
-    <h2>Galeri Kampus</h2>
+    <header>
+        <div class="container">
+            <h1 class="logo">UNIVERSITAS HANDAYANI MAKASSAR</h1>
+            <nav>
+                <ul>
+                    <li><a href="beranda.html">HOME</a></li>
+                    <li><a href="tentang.html">TENTANG</a></li>
+                    <li><a href="program_studi.html">PROGRAM STUDI</a></li>
+                    <li><a href="berita.html">BERITA & ACARA</a></li>
+                    <li><a href="galeri.html" class="active">GALERI</a></li> <li><a href="kontak.html">KONTAK</a></li>
+                    <li><a href="pendaftaran.html">PENDAFTARAN</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <div class="galeri-grid">
+    <section class="hero-subpage">
+        <div class="container">
+            <h1>Galeri Kampus</h1>
+            <p>Lihat lebih dekat kehidupan dan aktivitas di Universitas Handayani Makassar.</p>
+        </div>
+    </section>
 
-      <!-- Foto 1 -->
-      <div class="galeri-item">
-        <img src="images/kampus1.jpg" alt="Kampus Tampak Depan">
-        <p>Suasana Belajar Dalam Kampus</p>
-      </div>
+    <section class="galeri-section main-content">
+        <div class="container">
+            <h2 class="section-title">Momen Terbaik Kami</h2>
 
-      <!-- Foto 2 -->
-      <div class="galeri-item">
-        <img src="images/kegiatan1.jpg" alt="Kegiatan Mahasiswa">
-        <p>Kegiatan Mahasiswa</p>
-      </div>
+            <div class="galeri-grid">
 
-      <!-- Foto 3 -->
-      <div class="galeri-item">
-        <img src="images/mahasiswa1.jpg" alt="Mahasiswa Berprestasi">
-        <p>Waktu Berkumpul Mahasiswa</p>
-      </div>
+                <div class="galeri-item card-block"> <img src="images/kampus1.jpg" alt="Suasana Belajar Dalam Kampus">
+                    <div class="galeri-caption">
+                        <p>Suasana Belajar Dalam Kampus</p>
+                    </div>
+                </div>
 
-    </div>
-  </section>
+                <div class="galeri-item card-block"> <img src="images/kegiatan1.jpg" alt="Kegiatan Mahasiswa">
+                    <div class="galeri-caption">
+                        <p>Kegiatan Mahasiswa</p>
+                    </div>
+                </div>
+
+                <div class="galeri-item card-block"> <img src="images/mahasiswa1.jpg" alt="Waktu Berkumpul Mahasiswa">
+                    <div class="galeri-caption">
+                        <p>Waktu Berkumpul Mahasiswa</p>
+                    </div>
+                </div>
+
+                <div class="galeri-item card-block">
+                    <img src="images/lab.jpg" alt="Laboratorium Kampus">
+                    <div class="galeri-caption">
+                        <p>Fasilitas Laboratorium</p>
+                    </div>
+                </div>
+
+                <div class="galeri-item card-block">
+                    <img src="images/perpustakaan.jpg" alt="Perpustakaan Kampus">
+                    <div class="galeri-caption">
+                        <p>Suasana Perpustakaan</p>
+                    </div>
+                </div>
+
+                <div class="galeri-item card-block">
+                    <img src="images/wisuda.jpg" alt="Acara Wisuda">
+                    <div class="galeri-caption">
+                        <p>Momen Wisuda Angkatan Terbaru</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Universitas Handayani Makassar. All Rights Reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
