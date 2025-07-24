@@ -1,51 +1,99 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pendaftaran Mahasiswa Baru</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Mahasiswa Baru - Universitas Handayani Makassar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <section class="pendaftaran-section">
-    <h2>Pendaftaran Mahasiswa Baru</h2>
+    <header>
+        <div class="container">
+            <h1 class="logo">UNIVERSITAS HANDAYANI MAKASSAR</h1>
+            <nav>
+                <ul>
+                    <li><a href="beranda.html">HOME</a></li>
+                    <li><a href="tentang.html">TENTANG</a></li>
+                    <li><a href="program_studi.html">PROGRAM STUDI</a></li>
+                    <li><a href="berita.html">BERITA & ACARA</a></li>
+                    <li><a href="galeri.html">GALERI</a></li>
+                    <li><a href="kontak.html">KONTAK</a></li>
+                    <li><a href="pendaftaran.html" class="active">PENDAFTARAN</a></li> </ul>
+            </nav>
+        </div>
+    </header>
 
-    <div class="info-pendaftaran">
-      <p>Universitas Handayani Makassar membuka pendaftaran mahasiswa baru untuk tahun akademik 2025/2026. Silakan isi formulir di bawah ini untuk mendaftar.</p>
-      <ul>
-        <li>Scan Ijazah SMA/SMK</li>
-        <li>Pas foto berwarna 3x4</li>
-        <li>Fotokopi KTP</li>
-        <li>Mengisi formulir pendaftaran online</li>
-      </ul>
-    </div>
+    <section class="hero-subpage">
+        <div class="container">
+            <h1>Pendaftaran Mahasiswa Baru</h1>
+            <p>Bergabunglah dengan Universitas Handayani Makassar dan raih masa depan cerah Anda!</p>
+        </div>
+    </section>
 
-    <div class="formulir-pendaftaran">
-      <form>
-        <label for="nama">Nama Lengkap:</label>
-        <input type="text" id="nama" name="nama" required>
+    <section class="pendaftaran-section main-content">
+        <div class="container">
+            <h2 class="section-title">Informasi Pendaftaran</h2>
 
-        <label for="email">Email Aktif:</label>
-        <input type="email" id="email" name="email" required>
+            <div class="info-pendaftaran card-block">
+                <h3>Syarat Pendaftaran</h3>
+                <ul>
+                    <li>Lulusan SMA/SMK/Sederajat</li>
+                    <li>Fotokopi Ijazah/Surat Keterangan Lulus (legalisir)</li>
+                    <li>Fotokopi KTP/Kartu Pelajar</li>
+                    <li>Pas Foto Berwarna 3x4 (2 lembar)</li>
+                    <li>Membayar Biaya Pendaftaran</li>
+                </ul>
 
-        <label for="telepon">No. Telepon:</label>
-        <input type="tel" id="telepon" name="telepon" required>
+                <h3>Jadwal Penting</h3>
+                <ul>
+                    <li>Gelombang 1: 01 Juni - 31 Juli 2025</li>
+                    <li>Gelombang 2: 01 Agustus - 30 September 2025</li>
+                    <li>Ujian Saringan Masuk: (Lihat informasi lebih lanjut)</li>
+                </ul>
+                <p>Untuk informasi lengkap, silakan unduh brosur pendaftaran kami <a href="#">di sini</a>.</p>
+            </div>
 
-        <label for="jurusan">Pilih Program Studi:</label>
-        <select id="jurusan" name="jurusan" required>
-          <option value="">-- Pilih --</option>
-          <option>Teknik Informatika</option>
-          <option>Sistem Informasi</option>
-          <option>Manajemen</option>
-          <option>Akuntansi</option>
-        </select>
+            <h2 class="section-title" style="margin-top: 50px;">Formulir Pendaftaran Online</h2>
 
-        <button type="submit">Daftar Sekarang</button>
-      </form>
-    </div>
-  </section>
+            <div class="formulir-pendaftaran card-block">
+                <form action="#" method="POST">
+                    <label for="nama_lengkap">Nama Lengkap:</label>
+                    <input type="text" id="nama_lengkap" name="nama_lengkap" placeholder="Masukkan nama lengkap Anda" required>
+
+                    <label for="email">Email Aktif:</label>
+                    <input type="email" id="email" name="email" placeholder="Masukkan alamat email Anda" required>
+
+                    <label for="no_hp">No. Telepon:</label>
+                    <input type="tel" id="no_hp" name="no_hp" placeholder="Contoh: 081234567890" required>
+
+                    <label for="jurusan">Pilih Program Studi:</label>
+                    <select id="jurusan" name="jurusan" required>
+                        <option value="">-- Pilih --</option>
+                        <option value="teknik_informatika">Teknik Informatika</option>
+                        <option value="sistem_informasi">Sistem Informasi</option>
+                        <option value="manajemen">Manajemen</option>
+                        <option value="akuntansi">Akuntansi</option>
+                        </select>
+
+                    <label for="asal_sekolah">Asal Sekolah:</label>
+                    <input type="text" id="asal_sekolah" name="asal_sekolah" placeholder="Nama sekolah asal Anda" required>
+
+                    <label for="pesan">Pesan Tambahan (Opsional):</label>
+                    <textarea id="pesan" name="pesan" rows="4" placeholder="Tulis pesan atau pertanyaan Anda di sini..."></textarea>
+
+                    <button type="submit">Daftar Sekarang</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Universitas Handayani Makassar. All Rights Reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
